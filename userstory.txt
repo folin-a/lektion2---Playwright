@@ -1,0 +1,126 @@
+text
+#Lejonmanen webbsida
+
+US1: (exemplet i uppgiften)
+Story: Som en användare, 
+vill jag se mötet "sprint planning" som utspelar sig första dagen på en sprint, 
+så att jag vet vad jag ska göra på mötet.
+
+Scenario:
+1. Navigera till webbsidan https://lejonmanen.github.io/agile-helper/ 
+2. Klicka på knappen med texten "First"
+3. Klicka på knappen vars text innehåller "Sprint planning"
+4. Kontrollera att ett <dialog> element visas på sidan, som innehåller en rubrik med texten "Sprint planning"
+
+US2:
+Som en scrum master
+vill jag kunna avsluta sprintplaneringen
+så att teamet officiellt kan starta sprinten
+
+1. Navigera till startsidan
+2. Klicka på "Första"
+3. Klicka på "Sprint planning"
+4. Verifiera att dialogen öppnas
+5. Klicka på "Nu är vi klara. Börja sprinten!"
+6. Verifiera att du är tillbaka på sidan där Sprint planning-knappen finns
+
+US3:
+Som en användare
+vill jag kunna öppna Daily standup från sidan för första sprintdagen
+så att jag kan starta dagens möte direkt efter sprintstart
+
+1. Navigera till startsidan
+2. Klicka på knappen "Första"
+3. Klicka på knappen "Börja varje dag med Daily standup"
+4. Kontrollera att dialog öppnas med rubriken "Daily Standup"
+
+US4:
+Som en användare 
+vill jag kunna navigera tillbaka till startsidan från valfri vy, 
+så att jag enkelt kan välja en annan sprintdag utan att behöva ladda om sidan.
+
+Scenario:
+1. Navigera till webbsidan https://lejonmanen.github.io/agile-helper/
+2. Klicka på knappen med texten ”Första”
+3. Klicka på knappen med texten ”Välj dag”
+4. Kontrollera att du kommer tillbaka till tidigare sida som innehåller knappen med texten ”Första” igen.
+   
+US5: Som en användare
+Vill jag kunna välja ett sprint alternativ
+Så att jag vet vad som utspelar sig när jag är mitt i sprinten
+
+Scenario:
+1. Navigera till webbsidan https://lejonmanen.github.io/agile-helper/
+2. Klicka på knappen med texten ”Någonstans mitt i”
+3. Klicka på knappen som innehåller texten ”Daily standup”
+4. Kontrollera att en dialog visas på sidan med rubrik ”Daily Standup” 
+
+US6:
+Som en scrum master
+vill jag enkelt kunna ta tid på varje daily standup
+Så att teamet förhåller sig till den tid som är avsatt för det mötet
+
+Scenario:
+1. Navigera till webbsidan https://lejonmanen.github.io/agile-helper/
+2. Klicka på knappen med texten ”Någonstans mitt i”
+3. Klicka på knappen som innehåller texten ”Daily standup”
+4. Kontrollera att ett dialog element visas på sidan med rubrik ”Daily Standup” 
+5. Kontrollera att det visas en knapp som innehåller texten ”Börja mötet”
+6.  Klicka på knappen och se att tid startar
+
+US7:
+Som användare
+vill jag kunna avsluta Daily standup
+så att jag återgår till menyn utan att behöva ladda om sidan
+
+Scenario:
+1. Navigera till startsidan
+2. Klicka på "Någonstans mitt i"
+3. Klicka på "Daily standup"
+4. Verifiera att dialogen öppnas
+5. Klicka på "Nu är mötet slut!"
+6. Verifiera att du kommer tillbaka till föregående sida
+
+US8:
+Som användare
+vill jag kunna komma till Daily standup om jag befinner mig i sista veckan i sprinten
+så att jag även under sista sprinten kan läsa om mötets regler
+
+1. Navigera till startsidan
+2. Klicka på "Sista"
+3. Klicka på "Börja varje dag med Daily standup"
+4. Verifiera att dialogen öppnas med rubriken "Daily standup"
+
+US9:
+Som en produktägare
+Vill jag kunna öppna en dialog och läsa informationen för en Sprint review
+Så att jag kan gå igenom teamets leveranser innan sprinten avslutas.
+
+1. Navigera till startsidan.
+2. Klicka på knappen “Sista”.
+3. Klicka på knappen “Presentera ert arbete för produktägaren under Sprint review”.
+4. Kontrollera att en dialog öppnas med rubriken "Sprint review".
+5. Klicka på knappen “Ok vi är klara. Dags för retrospective!”.
+6. Verifiera att sidan återgår till sidan där Sprint review-knappen finns.
+
+US10:
+Som en användare
+Vill jag kunna öppna en dialog och läsa hur man genomför en Sprint retrospective
+Så att teamet kan reflektera över sprintens arbete och förbättra sin process.
+
+1. Navigera till startsidan.
+2. Klicka på knappen “Sista”.
+3. Klicka på knappen “Avsluta sprinten med att utvärdera ert arbete i Sprint retrospective”.
+4. Kontrollera att en dialog öppnas med rubriken "Sprint Retrospective".
+
+US11:
+Som en användare
+Vill jag kunna stänga dialogen för Sprint retrospective
+Så att jag kommer tillbaka till föregående sida utan att behöva omladdning
+
+1. Navigera till startsidan.
+2. Klicka på knappen “Sista”.
+3. Klicka på knappen “Avsluta sprinten med att utvärdera ert arbete i Sprint retrospective”.
+4. Kontrollera att en dialog öppnas med rubriken "Sprint Retrospective".
+5. Klicka på knappen “Sprinten är färdig”.
+6. Verifiera att användaren hamnar tillbaka på sidan där Retrospective-knappen finns.

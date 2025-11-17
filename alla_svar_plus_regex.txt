@@ -1,0 +1,142 @@
+text
+Uppgift 1 med underuppgifter:
+--------------------------------
+1a Vilka strängar matchas av det reguljära uttrycket: "ab" ? Testa era svar på https://regex101.com/ 
+”ab” betyder ”matchar ett litet a följt av ett litet b i text. 
+A.	"a b"
+B.	"aBBa"
+C.	"sabotör"
+
+1b Betrakta uttrycket "nisse". Vad skriver jag för att matcha både "Nisse", "NISSE" och "nisse"?
+Du kan skriva ett uttryck för att matcha alla olika bokstäver i olika former som [Nn][Ii][Ss][Ss][Ee] eller så kan du använda [nisse]\i som tar alla bokstäver i alla former (case insensitive)
+
+1c Vilka strängar matchas av "a*n" ?
+a* betyder att a kan finnas men behöver inte finnas men ”n” behöver finnas.
+Så nedan matchar alla alternativ uttrycket, kunde även skrivas som ”n”.
+A.	"an"
+B.	"amerikan"
+C.	"naturlig"
+D.	"annandag"
+
+1d Vilka strängar matchas av "[ae]n" ?
+Betyder: någon av ”a” eller ”e” samt ”n” så ”an” eller ”en” inte ae, [] matchar en av det inom brackets.
+A.	"naiv"
+B.	"inconsequential"
+C.	"bae"
+
+1e Vilka strängar matchas av "je.+e"?
+. betyder vilken character som helst, exakt ett tecken
++ betyder 1 eller flera 
+.+ betyder att det måste finnas tecken mellan, hur många som helst men minst ett och vilket tecken som helst.
+Nedan, matchar jeppe och je je.
+A.	"je"
+B.	"jee"
+C.	"jeppe"
+D.	"je je"
+
+1f Vilka strängar matchas av "\san?\s"
+Betyder  \s betyder any whitespace character – space, tab, non-breaking space (A0 I hex).
+\ is only applicable for the first letter behind it.
+It matches “ an “ on C below and “ a ” in D.
+
+A.	"sansad"
+B.	" annan "
+C.	"    an   na   an   "
+D.	"be a darling"
+
+1e Skriv ner med egna ord, vad följande uttryck matchar. "Strängar som innehåller…"
+A.	"lines?"			
+-> Strängar som innehåller line med eller utan s, så line eller lines
+B.	"^a*ö$"		
+-> Strängar som startar med a eller inget a alls, eller har många a:s och måste sluta på ett ö. Så endast ö matchar också. De bokstäver framför ö:et måste vara ett e eller flera a:n eller inte finnas alls.
+C.	"[aeiouyåäö]+"		
+-> Strängar som innehåller en eller flera av en vokal. Varje ny bokstav kan vara en eller flera av vokalerna.
+D.	"[123456789]\d*"	
+-> Strängar som innehåller nummer utan en 0:a och kan följas av nummer 0 till 9 en eller flera gånger.
+E.	"\d{4}-\d{2}-\d{2}"	
+-> Strängar som innehåller exakt 4 av siffrorna 0-9 följt av ett ”-” tecken och exakt 2 av siffrorna 0-9 följt av ett”-” och exakt 2 av siffrorna 0-9.
+------------------------------------------------------------------
+2a Betrakta https://lejonmanen.github.io/agile-helper/ . Skriv en user story som beskriver att användaren ska kunna läsa hur man gör en "sprint retrospective".
+
+Som en scrum master
+Vill jag kunna läsa en utförlig beskrivning av sprint retrospektive
+Så att jag kan förbereda och leda mötet på bästa sätt
+
+2b Skriv ner ett testscenario för user storyn. Använd en punktlista. Fundera särskilt på vad som ska testas implicit och explicit.
+Implicit = underförstått, testas indirekt
+Explicit = uttryckligen, testas direkt
+
+Testscenario:
+•	Navigera till webbsidan https://lejonmanen.github.io/agile-helper/
+•	Kontrollera att sidan laddas utan felmeddelanden
+•	Verifiera att det visas knappar för att kunna navigera vidare
+•	Klicka på knappen ”Sista”
+•	Kontrollera att den nya sidan laddas utan fel och att det visas fler alternativ att komma vidare
+•	Klicka på knappen ”Avsluta sprinten med att utvärdera ert arbeta i Sprint Retrospektive”
+•	Kontrollerera att sidan laddas och att rätt val ”Sprint Retrospektiv” visas
+•	Kontrollera innehållet på den nya sidan och verifiera att det visas rätt information för ett Sprint retrospektiv
+o	Guide om hur mötet kan genomföras
+o	De grundläggande frågorna
+o	Vem som gör vad
+
+Explicit testing är vad du kan se händer, som t ex knapparna fungerar, navigeringen fungerar, du hamnar på rätt plats utan felmeddelanden.
+Implicit testning i det ovan blir att verifiera att information är korrekt för Sprint Retrospektiv och att det är lätt att följa anvisningarna.
+
+3. Diskussion. Timeout är väldigt kort, där jag kollat är 30000 (30 sec) ett bättre alternativ men allt beror nog på vad man har för krav på webbplatsen.
+----------------------------------------------------------------------
+Uppgift 2: regex, med underuppgifter:
+1a: Skriv ett regex som kontrollerar att det finns en längd i strängen, som anges i centimeter:
+"Fiskarna som jag fångade var 55 cm långa."
+Svar: \d+\s*cm
+\d för att se om det finns nummer 
++ för att kolla om det finns en eller flera nummer (minst 1nummer)
+\s för att se om det finns mellanrum(eller annat blanksteg)
+* för att kolla om det är noll eller flera (vad som specificerats framför)
+cm för att kontrollera att texten cm kommer efter nummer och mellanrum.
+
+1b Denna gången vill vi veta om det finns två längder.
+Svar: Repetera det ovanför men lägg till att det får lov att finnas andra tecken mellan längderna om det är det som är tanken. Så \d+\s*cm.+\d+\s*cm är ett alternativ.
+.+ mellan uttrycken för att tillåtna tecken, en eller flera, innan nästa längd.
+Hittar endast cm som längder, det kanske vore bra att lägga till flera längder \d+\s*(cm|dm|mm|m).+\d+\s*( cm|dm|mm|m) eller skrivet som \d+\s*[cdm]?m.+\d+\s*[cdm]?m
+
+1c Längderna ska vara samma enhet.
+"Fiskarna som jag fångade var 55 cm långa, så båda fick plats i min 1,23 m långa låda."
+Svar: \d+(?:[.,]\d+)?\s*(dm|cm|mm|m).*?\d+(?[.,]\d+)?\s*\1
+(?:[]) matchar grupp av enhet
+\1 refererar till tidigare ”fångad” grupp så att du får samma enhet.
+Om den hittar två captures så är den färdig, inte mer inte mindre. Hittas inte två får du error i testet du använder det i (ingen match).
+Ovan reg ex hittar endast en eller två längder. För att hitta alla längder i texten kan man istället skriva:
+\d+(?:[.,]\d+)?\s*(dm|cm|mm|m)(.*?\d+(?[.,]\d+)?\s*\1)* 
+
+2 Skriv ett regex som matchar ett svenskt postnummer. Postnummer består av fem siffror indelade i två grupper med mellanslag emellan. Exempel: "123 45"
+Om du vill övertänka fördjupa dig mera: https://sv.wikipedia.org/wiki/Postnummer_i_Sverige 
+Svar: \d{3}\s?\d{2} eller \d{3} \d{2} (mellanslag istället för ett whitespace vilket är mer troligt.)
+
+3 Skriv ett regex som matchar ett datum skrivet enligt den internationella standarden ISO 8601, alltså 10 tecken med bindestreck mellan avdelningarna. Exempel: 2025-03-10.
+Svar: \d{4}-\d{2}-\d{2}
+
+4 Skriv ett regex som matchar ett pengavärde i siffror. Exempel på värden som ska matchas:
+•	200 kr
+•	12,50 kr
+•	0,35 kr
+Svar: ^\d+(?:[.,]\d{1,2}+)?\s*kr$
+Start och slut med ^...$ pga att du inte vill ha något mellan siffran och ”kr” i detta lägget, de måste komma tillsammans men ok med whitespace.
+
+5a Skriv ett regex som matchar en e-postadress (användarnamn@server.domän) enligt följande icke kompletta regler.
+•	användarnamn kan innehålla bokstäver, siffror och specialtecknen som punkt och bindestreck
+•	server kan innehålla samma sorts tecken
+•	domän kan innehålla bokstäver och siffror
+Svar: ^[a-zåäöA-ZÅÄÖ0-9.-]+@[a-zåäöA-ZÅÄÖ0-9.-]+?\.[a-zåäöA-ZÅÄÖ0-9]+$
+5b Gör ett regex som matchar en komplett e-postadress enligt specifikationen i artikeln här:
+What is a valid email address format
+Svar: ^[a-zA-Z0-9]+(?:[._-][a-z0-9]+)*@(?:[a-z0-9]+(?:-[a-z0-9]+)*\.)+[a-z0-9]{2,}$
+^...$ start och slut på strängen
+Användarnamn:
+[]+ en eller flera av bokstäverna eller numrerna i hakparantesen
+(?:[._-][a-z0-9]+)* Varje specialtecken måste följas av en bokstav eller siffra.
+
+@ obligatoriskt mellan användarnamn och domän
+(?:[a-z0-9]+(?:-[a-z0-9]+)
+.\ sätter en punkt mellan dom
+
+[a-z0-9]{2,} Sista delen av adressen måste vara minst 2tecken lång.
